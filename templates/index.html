@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Адаптивный ИИ-наставник</title>
+
+<style>
+body {
+    background: #f4f6f8;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 900px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+}
+
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+textarea {
+    height: 150px;
+}
+
+button {
+    background: #2057d1;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.answer {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    min-height: 120px;
+    white-space: pre-wrap;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Адаптивный ИИ-наставник</h1>
+
+<label>Выберите регион</label>
+
+<select id="region">
+    <option value="chechnya">Чечня/РФ</option>
+    <option value="usa">США</option>
+    <option value="china">Китай</option>
+</select>
+
+<label>Введите вопрос ученика</label>
+
+<textarea id="question" placeholder="Например: Объясни жизненный цикл программного обеспечения"></textarea>
+
+<button type="button" onclick="sendQuestion()">Получить ответ</button>
+
+<div class="answer" id="answer">
+Здесь будет отображаться ответ ИИ-наставника.
+</div>
+
+</div>
+
+<script>
+async function sendQuestion() {
+    const region = document.getElementById("region").value;
+    const question = document.getElementById("question").value;
+    const answerBlock = document.getElementById("answer");
+
+    if (question.trim() === "") {
+        answerBlock.innerText = "Введите вопрос ученика.";
+        return;
+    }
+
+    answerBlock.innerText = "Ответ формируется...";
+
+    const response = await fetch("/ask", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            region: region,
+            question: question
+        })
+    });
+
+    const data = await response.json();
+    answerBlock.innerText = data.answer;
+}
+</script>
+
+</body>
+</html>
