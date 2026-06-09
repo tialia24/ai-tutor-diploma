@@ -5,9 +5,7 @@
 <title>AI Edu</title>
 
 <style>
-* {
-    box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
     margin: 0;
@@ -17,8 +15,8 @@ body {
 }
 
 .page {
-    max-width: 1100px;
-    margin: 40px auto;
+    max-width: 1150px;
+    margin: 35px auto;
     padding: 20px;
 }
 
@@ -28,13 +26,11 @@ body {
     padding: 35px;
     border-radius: 24px;
     margin-bottom: 25px;
-    position: relative;
-    overflow: hidden;
 }
 
 .hero h1 {
     margin: 0;
-    font-size: 42px;
+    font-size: 44px;
 }
 
 .hero p {
@@ -42,33 +38,19 @@ body {
     color: #dbeafe;
 }
 
-.network {
-    position: absolute;
-    right: 40px;
-    top: 35px;
-    width: 230px;
-    height: 160px;
-    opacity: 0.35;
-}
-
-.dot {
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    background: white;
-    border-radius: 50%;
-}
-
-.line {
-    position: absolute;
-    height: 2px;
-    background: white;
-    transform-origin: left center;
+.badge {
+    display: inline-block;
+    background: #eff6ff;
+    color: #2057d1;
+    padding: 8px 12px;
+    border-radius: 999px;
+    font-size: 14px;
+    margin: 6px 6px 6px 0;
 }
 
 .main {
     display: grid;
-    grid-template-columns: 320px 1fr;
+    grid-template-columns: 330px 1fr;
     gap: 25px;
 }
 
@@ -96,7 +78,7 @@ select, textarea {
 }
 
 textarea {
-    min-height: 150px;
+    min-height: 140px;
     resize: vertical;
 }
 
@@ -117,20 +99,16 @@ button:hover {
     background: #1747b3;
 }
 
-.badge {
-    display: inline-block;
-    background: #eff6ff;
-    color: #2057d1;
-    padding: 8px 12px;
-    border-radius: 999px;
-    font-size: 14px;
-    margin-bottom: 15px;
-}
-
 .info {
     color: #64748b;
     line-height: 1.6;
     font-size: 15px;
+}
+
+.small-title {
+    font-weight: bold;
+    margin-bottom: 7px;
+    color: #0f172a;
 }
 
 .chat-title {
@@ -156,10 +134,23 @@ button:hover {
     border-left: 5px solid #2057d1;
 }
 
-.small-title {
+.stats {
+    background: #f8fafc;
+    border-radius: 16px;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+.counter {
+    font-size: 32px;
     font-weight: bold;
-    margin-bottom: 7px;
-    color: #0f172a;
+    color: #2057d1;
+}
+
+.list {
+    padding-left: 0;
+    list-style: none;
+    line-height: 1.8;
 }
 
 .footer-note {
@@ -177,21 +168,9 @@ button:hover {
 
     <div class="hero">
         <h1>AI Edu</h1>
-        <p>Адаптивный интеллектуальный помощник для образовательной среды</p>
-        <div class="badge">Версия прототипа 1.0 · ВКР</div>
-
-        <div class="network">
-            <div class="dot" style="left:20px; top:20px;"></div>
-            <div class="dot" style="left:100px; top:60px;"></div>
-            <div class="dot" style="left:190px; top:25px;"></div>
-            <div class="dot" style="left:60px; top:125px;"></div>
-            <div class="dot" style="left:170px; top:120px;"></div>
-
-            <div class="line" style="left:30px; top:30px; width:90px; transform:rotate(25deg);"></div>
-            <div class="line" style="left:110px; top:67px; width:95px; transform:rotate(-23deg);"></div>
-            <div class="line" style="left:105px; top:70px; width:90px; transform:rotate(35deg);"></div>
-            <div class="line" style="left:67px; top:125px; width:90px; transform:rotate(-35deg);"></div>
-        </div>
+        <p>Адаптивный интеллектуальный помощник для персонализированного обучения</p>
+        <div class="badge">Версия прототипа 1.0</div>
+        <div class="badge">Разработано в рамках ВКР</div>
     </div>
 
     <div class="main">
@@ -210,11 +189,30 @@ button:hover {
                 Русский язык, уважительный стиль общения, спокойное и понятное объяснение.
             </div>
 
+            <div class="stats">
+                <div class="small-title">Обработано запросов</div>
+                <div class="counter" id="counter">0</div>
+            </div>
+
             <hr style="border:none; border-top:1px solid #e5e7eb; margin:25px 0;">
 
-            <div class="small-title">Назначение системы</div>
-            <div class="info">
-                Прототип демонстрирует, как образовательный ИИ-помощник может менять стиль ответа в зависимости от региона пользователя.
+            <div class="small-title">Возможности AI Edu</div>
+            <ul class="list info">
+                <li>✓ Адаптация под регион пользователя</li>
+                <li>✓ Персонализированный стиль общения</li>
+                <li>✓ Поддержка образовательного процесса</li>
+                <li>✓ История диалога</li>
+            </ul>
+
+            <div class="small-title">Технологии</div>
+            <div>
+                <span class="badge">Python</span>
+                <span class="badge">Flask</span>
+                <span class="badge">HTML</span>
+                <span class="badge">CSS</span>
+                <span class="badge">JavaScript</span>
+                <span class="badge">GitHub</span>
+                <span class="badge">Render</span>
             </div>
         </div>
 
@@ -229,7 +227,7 @@ button:hover {
             <div id="chatArea" style="margin-top:25px;">
                 <div class="message ai-message">
                     <div class="small-title">AI Edu</div>
-                    Здесь будет отображаться ответ интеллектуального помощника.
+                    Здесь будет отображаться история диалога с интеллектуальным помощником.
                 </div>
             </div>
         </div>
@@ -237,12 +235,15 @@ button:hover {
     </div>
 
     <div class="footer-note">
-        Разработано в рамках дипломного проекта · Flask · HTML · CSS · JavaScript
+        AI Edu · Образовательный веб-прототип · Flask · HTML · CSS · JavaScript
     </div>
 
 </div>
 
 <script>
+let requestCount = 0;
+let chatHistory = "";
+
 function changeRegionInfo() {
     const region = document.getElementById("region").value;
     const regionInfo = document.getElementById("regionInfo");
@@ -260,9 +261,10 @@ async function sendQuestion() {
     const region = document.getElementById("region").value;
     const question = document.getElementById("question").value;
     const chatArea = document.getElementById("chatArea");
+    const counter = document.getElementById("counter");
 
     if (question.trim() === "") {
-        chatArea.innerHTML = `
+        chatArea.innerHTML = chatHistory + `
             <div class="message ai-message">
                 <div class="small-title">AI Edu</div>
                 Введите вопрос ученика.
@@ -271,7 +273,7 @@ async function sendQuestion() {
         return;
     }
 
-    chatArea.innerHTML = `
+    chatArea.innerHTML = chatHistory + `
         <div class="message user-message">
             <div class="small-title">Пользователь</div>
             ${question}
@@ -295,7 +297,10 @@ async function sendQuestion() {
 
     const data = await response.json();
 
-    chatArea.innerHTML = `
+    requestCount++;
+    counter.innerText = requestCount;
+
+    chatHistory += `
         <div class="message user-message">
             <div class="small-title">Пользователь</div>
             ${question}
@@ -305,6 +310,9 @@ async function sendQuestion() {
             ${data.answer}
         </div>
     `;
+
+    chatArea.innerHTML = chatHistory;
+    document.getElementById("question").value = "";
 }
 </script>
 
