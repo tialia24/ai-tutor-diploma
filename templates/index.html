@@ -2,99 +2,285 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<title>Адаптивный ИИ-наставник</title>
+<title>AI Edu</title>
 
 <style>
+* {
+    box-sizing: border-box;
+}
+
 body {
-    background: #f4f6f8;
+    margin: 0;
     font-family: Arial, sans-serif;
+    background: #f5f7fa;
+    color: #1e293b;
 }
 
-.container {
-    width: 900px;
+.page {
+    max-width: 1100px;
     margin: 40px auto;
+    padding: 20px;
+}
+
+.hero {
+    background: linear-gradient(135deg, #2057d1, #0f172a);
+    color: white;
+    padding: 35px;
+    border-radius: 24px;
+    margin-bottom: 25px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero h1 {
+    margin: 0;
+    font-size: 42px;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #dbeafe;
+}
+
+.network {
+    position: absolute;
+    right: 40px;
+    top: 35px;
+    width: 230px;
+    height: 160px;
+    opacity: 0.35;
+}
+
+.dot {
+    position: absolute;
+    width: 12px;
+    height: 12px;
     background: white;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    border-radius: 50%;
 }
 
-h1 {
-    text-align: center;
+.line {
+    position: absolute;
+    height: 2px;
+    background: white;
+    transform-origin: left center;
 }
 
-select,
-textarea {
+.main {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 25px;
+}
+
+.card {
+    background: white;
+    border-radius: 22px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    border: 1px solid #e5e7eb;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+}
+
+select, textarea {
     width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    margin-bottom: 20px;
+    border: 1px solid #cbd5e1;
+    border-radius: 14px;
+    padding: 14px;
     font-size: 16px;
+    outline: none;
 }
 
 textarea {
-    height: 150px;
+    min-height: 150px;
+    resize: vertical;
 }
 
 button {
+    width: 100%;
+    margin-top: 15px;
     background: #2057d1;
     color: white;
     border: none;
-    padding: 12px 25px;
-    border-radius: 8px;
-    cursor: pointer;
+    border-radius: 14px;
+    padding: 15px;
     font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
-.answer {
-    margin-top: 20px;
-    padding: 15px;
-    background: #f8f9fa;
-    border-radius: 10px;
-    min-height: 120px;
+button:hover {
+    background: #1747b3;
+}
+
+.badge {
+    display: inline-block;
+    background: #eff6ff;
+    color: #2057d1;
+    padding: 8px 12px;
+    border-radius: 999px;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.info {
+    color: #64748b;
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+.chat-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.message {
+    padding: 18px;
+    border-radius: 18px;
+    margin-bottom: 15px;
+    line-height: 1.6;
     white-space: pre-wrap;
+}
+
+.user-message {
+    background: #f1f5f9;
+}
+
+.ai-message {
+    background: #eff6ff;
+    border-left: 5px solid #2057d1;
+}
+
+.small-title {
+    font-weight: bold;
+    margin-bottom: 7px;
+    color: #0f172a;
+}
+
+.footer-note {
+    text-align: center;
+    color: #64748b;
+    margin-top: 25px;
+    font-size: 14px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="page">
 
-<h1>Адаптивный ИИ-наставник</h1>
+    <div class="hero">
+        <h1>AI Edu</h1>
+        <p>Адаптивный интеллектуальный помощник для образовательной среды</p>
+        <div class="badge">Версия прототипа 1.0 · ВКР</div>
 
-<label>Выберите регион</label>
+        <div class="network">
+            <div class="dot" style="left:20px; top:20px;"></div>
+            <div class="dot" style="left:100px; top:60px;"></div>
+            <div class="dot" style="left:190px; top:25px;"></div>
+            <div class="dot" style="left:60px; top:125px;"></div>
+            <div class="dot" style="left:170px; top:120px;"></div>
 
-<select id="region">
-    <option value="chechnya">Чечня/РФ</option>
-    <option value="usa">США</option>
-    <option value="china">Китай</option>
-</select>
+            <div class="line" style="left:30px; top:30px; width:90px; transform:rotate(25deg);"></div>
+            <div class="line" style="left:110px; top:67px; width:95px; transform:rotate(-23deg);"></div>
+            <div class="line" style="left:105px; top:70px; width:90px; transform:rotate(35deg);"></div>
+            <div class="line" style="left:67px; top:125px; width:90px; transform:rotate(-35deg);"></div>
+        </div>
+    </div>
 
-<label>Введите вопрос ученика</label>
+    <div class="main">
 
-<textarea id="question" placeholder="Например: Объясни жизненный цикл программного обеспечения"></textarea>
+        <div class="card">
+            <div class="badge">Настройки адаптации</div>
 
-<button type="button" onclick="sendQuestion()">Получить ответ</button>
+            <label for="region">Регион обучения</label>
+            <select id="region" onchange="changeRegionInfo()">
+                <option value="chechnya">Чечня/РФ</option>
+                <option value="usa">США</option>
+                <option value="china">Китай</option>
+            </select>
 
-<div class="answer" id="answer">
-Здесь будет отображаться ответ ИИ-наставника.
-</div>
+            <div class="info" id="regionInfo">
+                Русский язык, уважительный стиль общения, спокойное и понятное объяснение.
+            </div>
+
+            <hr style="border:none; border-top:1px solid #e5e7eb; margin:25px 0;">
+
+            <div class="small-title">Назначение системы</div>
+            <div class="info">
+                Прототип демонстрирует, как образовательный ИИ-помощник может менять стиль ответа в зависимости от региона пользователя.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="chat-title">Диалог с AI Edu</div>
+
+            <label for="question">Введите вопрос ученика</label>
+            <textarea id="question" placeholder="Например: Что такое искусственный интеллект?"></textarea>
+
+            <button type="button" onclick="sendQuestion()">Получить ответ</button>
+
+            <div id="chatArea" style="margin-top:25px;">
+                <div class="message ai-message">
+                    <div class="small-title">AI Edu</div>
+                    Здесь будет отображаться ответ интеллектуального помощника.
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-note">
+        Разработано в рамках дипломного проекта · Flask · HTML · CSS · JavaScript
+    </div>
 
 </div>
 
 <script>
+function changeRegionInfo() {
+    const region = document.getElementById("region").value;
+    const regionInfo = document.getElementById("regionInfo");
+
+    if (region === "chechnya") {
+        regionInfo.innerText = "Русский язык, уважительный стиль общения, спокойное и понятное объяснение.";
+    } else if (region === "usa") {
+        regionInfo.innerText = "English language, Socratic method, guiding questions and step-by-step reasoning.";
+    } else {
+        regionInfo.innerText = "中文正式交流风格，结构化解释，礼貌和清晰的回答。";
+    }
+}
+
 async function sendQuestion() {
     const region = document.getElementById("region").value;
     const question = document.getElementById("question").value;
-    const answerBlock = document.getElementById("answer");
+    const chatArea = document.getElementById("chatArea");
 
     if (question.trim() === "") {
-        answerBlock.innerText = "Введите вопрос ученика.";
+        chatArea.innerHTML = `
+            <div class="message ai-message">
+                <div class="small-title">AI Edu</div>
+                Введите вопрос ученика.
+            </div>
+        `;
         return;
     }
 
-    answerBlock.innerText = "Ответ формируется...";
+    chatArea.innerHTML = `
+        <div class="message user-message">
+            <div class="small-title">Пользователь</div>
+            ${question}
+        </div>
+        <div class="message ai-message">
+            <div class="small-title">AI Edu</div>
+            Ответ формируется...
+        </div>
+    `;
 
     const response = await fetch("/ask", {
         method: "POST",
@@ -108,7 +294,17 @@ async function sendQuestion() {
     });
 
     const data = await response.json();
-    answerBlock.innerText = data.answer;
+
+    chatArea.innerHTML = `
+        <div class="message user-message">
+            <div class="small-title">Пользователь</div>
+            ${question}
+        </div>
+        <div class="message ai-message">
+            <div class="small-title">AI Edu</div>
+            ${data.answer}
+        </div>
+    `;
 }
 </script>
 
